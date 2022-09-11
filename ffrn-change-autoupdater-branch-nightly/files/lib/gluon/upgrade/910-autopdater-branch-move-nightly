@@ -1,0 +1,8 @@
+#!/bin/sh
+
+UPDATE_BRANCH=$(uci get autoupdater.settings.branch)
+
+if [ "$UPDATE_BRANCH" = "nightly" ]; then
+    # migrate nodes in the nightly branch to stable
+    uci set autoupdater.settings.branch='stable'
+fi
